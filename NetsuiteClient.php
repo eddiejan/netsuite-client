@@ -8,11 +8,17 @@ use Symfony\Contracts\HttpClient\ResponseStreamInterface;
 
 class NetsuiteClient implements ClientInterface
 {
+    private ?NetsuiteEnvironment $environment;
+
     public function __construct(
-        private HttpClientInterface $client,
-        private ?NetsuiteEnvironment $environment = null
+        private HttpClientInterface $client
     ) {
         //$this->client = $this->withOptions(['base_uri' => $this->environment->getBaseUri()]);
+    }
+
+    public function setEnvironment(NetsuiteEnvironment $environment): void
+    {
+        $this->environment = $environment;
     }
 
     public function request(string $method, string $url, array $options = []): ResponseInterface
