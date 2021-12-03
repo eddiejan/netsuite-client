@@ -1,0 +1,26 @@
+{
+  "name": "eddiejan/netsuite-client",
+  "type": "library",
+  "description": "TODO",
+  "homepage": "https://eddiejan.nl",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Edian Verpoort",
+      "email": "edian@eddiejan.nl"
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "symfony/http-client": "*",
+    "symfony/messenger": "^6.0",
+    "symfony/serializer": "^6.0"
+  },
+  "autoload": {
+    "psr-4": { "Eddiejan\\NetsuiteClient\\": "" },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "minimum-stability": "stable"
+}
