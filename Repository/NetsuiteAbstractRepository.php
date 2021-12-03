@@ -3,6 +3,7 @@
 namespace Eddiejan\NetsuiteClient\Repository;
 
 use Eddiejan\NetsuiteClient\NetsuiteClient;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
 class NetsuiteAbstractRepository
