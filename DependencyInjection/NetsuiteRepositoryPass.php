@@ -14,6 +14,8 @@ class NetsuiteRepositoryPass implements CompilerPassInterface
     {
         $container->register(NetsuiteAbstractRepository::class, NetsuiteAbstractRepository::class)
             ->addArgument(new Reference('netsuite.client'))
+            ->addArgument(new Reference('messenger.bus.default'))
+            ->addArgument(new Reference('serializer'))
         ;
     }
 }
