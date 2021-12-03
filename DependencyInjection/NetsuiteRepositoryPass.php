@@ -6,10 +6,12 @@ use Eddiejan\NetsuiteClient\NetsuiteClient;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-final class NetsuiteClientPass implements CompilerPassInterface
+class NetsuiteRepositoryPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        $container->register('netsuite.client', NetsuiteClient::class);
+        $container->register(NetsuiteRepositoryPass::class, NetsuiteRepositoryPass::class)
+            ->addArgument('%netsuite.client%')
+        ;
     }
 }
