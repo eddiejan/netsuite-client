@@ -2,6 +2,7 @@
 
 namespace Eddiejan\NetsuiteClient\DependencyInjection;
 
+use Eddiejan\NetsuiteClient\Message\NetsuiteMessage;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -17,6 +18,9 @@ class NetsuiteExtension extends Extension implements PrependExtensionInterface
     {
         $configs = $container->getExtensionConfig('framework');
 
-        dump($configs);
+        $configs['messenger']['transports']['netsuite']['dsn'] = '%env(MESSENGER_TRANSPORT_DSN)%';
+        $configs['messenger']['routing'] = [NetsuiteMessage::class => 'netsuite'];
+
+        $container->prependExtensionConfig('framework', $configs);
     }
 }
