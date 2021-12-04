@@ -23,6 +23,6 @@ class NetsuiteExtension extends Extension implements PrependExtensionInterface
 
         $container->prependExtensionConfig(3, $configs);
 
-        dump($configs);
+        dump($container->getExtensionConfig('framework'));
     }
 }
