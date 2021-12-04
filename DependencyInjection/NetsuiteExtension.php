@@ -17,6 +17,6 @@ class NetsuiteExtension extends Extension implements PrependExtensionInterface
     {
         $configs = $container->getExtensionConfig('messenger');
 
-        dump($configs);
+        dump($container);
     }
 }
