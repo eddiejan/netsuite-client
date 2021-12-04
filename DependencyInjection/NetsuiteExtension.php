@@ -18,9 +18,9 @@ class NetsuiteExtension extends Extension implements PrependExtensionInterface
     {
         $configs = $container->getExtensionConfig('framework');
 
-        $configs['messenger']['transports']['netsuite']['dsn'] = '%env(MESSENGER_TRANSPORT_DSN)%';
-        $configs['messenger']['routing'] = [NetsuiteMessage::class => 'netsuite'];
+        $configs['transports']['netsuite']['dsn'] = '%env(MESSENGER_TRANSPORT_DSN)%';
+        $configs['routing'] = [NetsuiteMessage::class => 'netsuite'];
 
-        $container->prependExtensionConfig('framework', $configs);
+        $container->prependExtensionConfig('messenger', $configs);
     }
 }
