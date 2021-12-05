@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class NetsuiteExtension extends Extension implements PrependExtensionInterface
+class NetsuiteExtension extends Exphptension implements PrependExtensionInterface
 {
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -16,8 +16,8 @@ class NetsuiteExtension extends Extension implements PrependExtensionInterface
 
     public function prepend(ContainerBuilder $container)
     {
-        $config['messenger']['transports']['netsuite']['dsn'] = '%env(MESSENGER_TRANSPORT_DSN)%';
-        $config['messenger']['routing'] = [NetsuiteMessage::class => 'netsuite'];
+        $config[3]['transports']['netsuite']['dsn'] = '%env(MESSENGER_TRANSPORT_DSN)%';
+        $config[3]['routing'] = [NetsuiteMessage::class => 'netsuite'];
 
         $container->prependExtensionConfig('framework', $config);
 
