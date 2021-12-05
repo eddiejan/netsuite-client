@@ -6,6 +6,7 @@ use Eddiejan\NetsuiteClient\DependencyInjection\NetsuiteClientPass;
 use Eddiejan\NetsuiteClient\DependencyInjection\NetsuiteExtension;
 use Eddiejan\NetsuiteClient\DependencyInjection\NetsuiteRepositoryPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 final class NetsuiteClientBundle extends Bundle
@@ -18,7 +19,7 @@ final class NetsuiteClientBundle extends Bundle
         $container->addCompilerPass(new NetsuiteRepositoryPass());
     }
 
-    public function getContainerExtension()
+    public function getContainerExtension(): ExtensionInterface
     {
         return new NetsuiteExtension();
     }
