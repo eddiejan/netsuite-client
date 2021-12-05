@@ -16,7 +16,10 @@ final class NetsuiteClientBundle extends Bundle
 
         $container->addCompilerPass(new NetsuiteClientPass());
         $container->addCompilerPass(new NetsuiteRepositoryPass());
+    }
 
-        $container->registerExtension(new NetsuiteExtension());
+    public function getContainerExtension()
+    {
+        return new NetsuiteExtension();
     }
 }
