@@ -15,6 +15,10 @@ final class NetsuiteClientPass implements CompilerPassInterface
         $container->register('netsuite.client', NetsuiteClient::class)
             ->addArgument(new Reference('http_client'))
         ;
-        $container->register(NetsuiteAbstractRepository::class, NetsuiteAbstractRepository::class);
+        $container->register('netsuite.repository', NetsuiteAbstractRepository::class);
+
+        $container->addAliases([
+            'netsuite.repository' => NetsuiteAbstractRepository::class
+        ]);
     }
 }
