@@ -19,7 +19,7 @@
   "require": {
     "php": ">=8.0",
     "eddiejan/package": "^0.1.0",
-    "symfony/http-client": "*",
+    "symfony/http-client": "^6.0",
     "symfony/messenger": "^6.0",
     "symfony/serializer": "^6.0",
     "symfony/dependency-injection": "^6.0",
