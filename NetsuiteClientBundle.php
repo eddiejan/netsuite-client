@@ -3,6 +3,7 @@
 namespace Eddiejan\NetsuiteClient;
 
 use Eddiejan\NetsuiteClient\DependencyInjection\NetsuiteClientPass;
+use Eddiejan\NetsuiteClient\DependencyInjection\NetsuiteRepositoryPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -13,5 +14,6 @@ final class NetsuiteClientBundle extends Bundle
         parent::build($container);
 
         $container->addCompilerPass(new NetsuiteClientPass());
+        $container->addCompilerPass(new NetsuiteRepositoryPass());
     }
 }
