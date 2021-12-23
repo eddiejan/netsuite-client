@@ -18,7 +18,7 @@ final class NetsuiteClient implements ClientInterface
     public function connectCredential(NetsuiteCredential $credential): void
     {
         $this->credential = $credential;
-        $this->client = $this->withOptions(['base_uri' => $this->credential->getBaseUri()]);
+        $this->client->withOptions(['base_uri' => $this->credential->getBaseUri()]);
     }
 
     public function disconnectCredential(): void
