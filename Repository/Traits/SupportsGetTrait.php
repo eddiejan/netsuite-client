@@ -4,8 +4,8 @@ namespace Eddiejan\NetsuiteClient\Repository\Traits;
 
 trait SupportsGetTrait
 {
-    public function find() {
-        return [];
+    public function find(int $id) {
+        return $this->client->request('GET', '/services/rest/record/v1/subsidiary')->getContent(false);
     }
 
     public function findAll() {
