@@ -4,6 +4,8 @@ namespace Eddiejan\NetsuiteClient;
 
 class NetsuiteEnvironment implements EnvironmentInterface
 {
+    public const CLIENT = NetsuiteClient::class;
+
     public function __construct(
         private string $realm,
         private string $consumerKey,

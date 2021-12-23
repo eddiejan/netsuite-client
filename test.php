@@ -8,16 +8,17 @@ require 'vendor/autoload.php';
 
 $environment = new NetsuiteEnvironment(
     '4948328_SB1',
-    'b73baa7d76fb14a0eb4790d8bcb86eebffb158ec91e1974277f8f5fec2d0bbfd',
-    '128a14a12d60e87153d3cdf223abf124e3fe07f960b3173f93695961586998d8',
-    'b6df99f538c7fd6812711f1d4473ed8c0129bbec1c79409754e9a699d26cb7f6',
-    'db9d112793021e184a61d71e25224d3b90fb80ba397d2e75c83ab55b90be07dc',
+    '6db8c2091c01b8e2bd2af0ab6fa7be2c239d3405be507b8a962c58f7a86daacd',
+    'd85e9935777929ee38e45fc2cac497997ad091427cda3e839e9e22e26b9a104b',
+    'ec06cca80867de297c0f182dca183e3bcd653996ab5b43d92eded8f652a6fc1c',
+    'd093df3a8de48d47a17b484a81412444642ba0c8c2b86c66a9fdd90d0a50ec1e',
     'https://4948328-sb1.suitetalk.api.netsuite.com',
 );
 
 $client = new NetsuiteClient(
     HttpClient::create(),
-    $environment
 );
+
+$client->connectEnvironment($environment);
 
 var_dump($client->request('GET', '/services/rest/record/v1/subsidiary')->getContent(false));

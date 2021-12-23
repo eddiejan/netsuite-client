@@ -12,13 +12,17 @@ class NetsuiteClient implements ClientInterface
 
     public function __construct(
         private HttpClientInterface $client
-    ) {
-        //$this->client = $this->withOptions(['base_uri' => $this->environment->getBaseUri()]);
-    }
+    ) { }
 
-    public function setEnvironment(NetsuiteEnvironment $environment): void
+    public function connectEnvironment(NetsuiteEnvironment $environment): void
     {
         $this->environment = $environment;
+        $this->client = $this->withOptions(['base_uri' => $this->environment->getBaseUri()]);
+    }
+
+    public function disconnectEnvironment(): void
+    {
+        $this->environment = null;
     }
 
     public function request(string $method, string $url, array $options = []): ResponseInterface
