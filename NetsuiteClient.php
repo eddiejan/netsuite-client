@@ -47,8 +47,8 @@ final class NetsuiteClient implements ClientInterface
     private function options(string $method, string $url, array $options = []): array
     {
         $params = [
-            'oauth_consumer_key' => $this->environment->getConsumerKey(),
-            'oauth_token' => $this->environment->getToken(),
+            'oauth_consumer_key' => $this->credential->getConsumerKey(),
+            'oauth_token' => $this->credential->getToken(),
             'oauth_signature_method' => 'HMAC-SHA256',
             'oauth_timestamp' => date('U'),
             'oauth_nonce' => $this->nonce(),
@@ -62,9 +62,9 @@ final class NetsuiteClient implements ClientInterface
             $queryParams = $params;
         }
         ksort($queryParams);
-        $baseString = $this->baseString($method, $this->environment->getBaseUri() . $url , $queryParams);
+        $baseString = $this->baseString($method, $this->credential->getBaseUri() . $url , $queryParams);
 
-        $params['oauth_signature'] = $this->sign($baseString, $this->environment->getConsumerSecret() . '&' . $this->environment->getTokenSecret());
+        $params['oauth_signature'] = $this->sign($baseString, $this->credential->getConsumerSecret() . '&' . $this->credential->getTokenSecret());
 
         foreach($params as $key => $value) {
             $params[$key] = $key . '="' . rawurlencode($value) . '"';
@@ -72,7 +72,7 @@ final class NetsuiteClient implements ClientInterface
 
         array_unshift(
             $params,
-            'realm="' . rawurlencode($this->environment->getRealm()) . '"'
+            'realm="' . rawurlencode($this->credential->getRealm()) . '"'
         );
 
         $options['headers'] = ['Authorization' => 'OAuth ' . implode(', ', $params)];;
