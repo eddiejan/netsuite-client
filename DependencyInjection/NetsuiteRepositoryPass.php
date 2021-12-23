@@ -3,6 +3,7 @@
 namespace Eddiejan\NetsuiteClient\DependencyInjection;
 
 use Eddiejan\NetsuiteClient\Repository\NetsuiteAbstractRepository;
+use Eddiejan\NetsuiteClient\Repository\NetsuiteSubsidiaryRepository;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -10,7 +11,7 @@ use Symfony\Component\DependencyInjection\Reference;
 final class NetsuiteRepositoryPass implements CompilerPassInterface
 {
     private array $repositories = [
-        NetsuiteAbstractRepository::class
+        NetsuiteSubsidiaryRepository::class
     ];
 
     public function process(ContainerBuilder $container)
