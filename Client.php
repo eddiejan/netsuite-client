@@ -2,22 +2,22 @@
 
 namespace Eddiejan\NetsuiteClient;
 
-use Eddiejan\NetsuiteClient\Repository\NetsuiteAbstractRepository;
-use Eddiejan\NetsuiteClient\Repository\NetsuiteSubsidiaryRepository;
+use Eddiejan\NetsuiteClient\Repository\AbstractRepository;
+use Eddiejan\NetsuiteClient\Repository\SubsidiaryRepository;
 use Eddiejan\Package\ClientInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Symfony\Contracts\HttpClient\ResponseStreamInterface;
 
-final class NetsuiteClient implements ClientInterface
+final class Client implements ClientInterface
 {
-    private ?NetsuiteCredential $credential;
+    private ?Credential $credential;
 
     public function __construct(
         private HttpClientInterface $client
     ) { }
 
-    public function connectCredential(NetsuiteCredential $credential): void
+    public function connectCredential(Credential $credential): void
     {
         $this->credential = $credential;
         $this->client = $this->client->withOptions(['base_uri' => $this->credential->getBaseUri()]);

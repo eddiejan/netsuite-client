@@ -2,21 +2,21 @@
 
 namespace Eddiejan\NetsuiteClient\DependencyInjection;
 
-use Eddiejan\NetsuiteClient\NetsuiteClient;
+use Eddiejan\NetsuiteClient\Client;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
-final class NetsuiteClientPass implements CompilerPassInterface
+final class ClientPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        $container->register('netsuite.client', NetsuiteClient::class)
+        $container->register('netsuite.client', Client::class)
             ->addArgument(new Reference('http_client'))
         ;
 
         $container->addAliases([
-            NetsuiteClient::class => 'netsuite.client'
+            Client::class => 'netsuite.client'
         ]);
     }
 }

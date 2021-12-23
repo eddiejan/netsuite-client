@@ -4,9 +4,9 @@ namespace Eddiejan\NetsuiteClient;
 
 use Eddiejan\Package\CredentialInterface;
 
-final class NetsuiteCredential implements CredentialInterface
+final class Credential implements CredentialInterface
 {
-    public const CLIENT = NetsuiteClient::class;
+    public const CLIENT = Client::class;
 
     public function __construct(
         private string $realm,

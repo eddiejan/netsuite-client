@@ -2,7 +2,7 @@
 
 namespace Eddiejan\NetsuiteClient\Message;
 
-interface NetsuiteMessage
+class Request implements Message
 {
 
 }
