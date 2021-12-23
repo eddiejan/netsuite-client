@@ -5,7 +5,7 @@ namespace Eddiejan\NetsuiteClient\Repository;
 use Eddiejan\NetsuiteClient\Model\Subsidiary;
 use Eddiejan\NetsuiteClient\Repository\Traits\SupportsGetTrait;
 
-class NetsuiteSubsidiaryRepository extends NetsuiteAbstractRepository
+final class NetsuiteSubsidiaryRepository extends NetsuiteAbstractRepository
 {
     use SupportsGetTrait;
 

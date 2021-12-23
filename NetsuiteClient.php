@@ -2,6 +2,8 @@
 
 namespace Eddiejan\NetsuiteClient;
 
+use Eddiejan\NetsuiteClient\Repository\NetsuiteAbstractRepository;
+use Eddiejan\NetsuiteClient\Repository\NetsuiteSubsidiaryRepository;
 use Eddiejan\Package\ClientInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
