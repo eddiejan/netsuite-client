@@ -11,8 +11,12 @@ final class NetsuiteClientPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        $container->register(NetsuiteClient::class, NetsuiteClient::class)
+        $container->register('netsuite.client', NetsuiteClient::class)
             ->addArgument(new Reference('http_client'))
         ;
+
+        $container->addAliases([
+            'netsuite.client' => NetsuiteClient::class
+        ]);
     }
 }
