@@ -9,14 +9,18 @@ use Symfony\Component\DependencyInjection\Reference;
 
 final class NetsuiteRepositoryPass implements CompilerPassInterface
 {
+    private array $repositories = [
+        NetsuiteAbstractRepository::class
+    ];
+
     public function process(ContainerBuilder $container)
     {
-        $container->register('netsuite.repository', NetsuiteAbstractRepository::class)
-            ->addArgument(new Reference('netsuite.client'))
-            ->addArgument(new Reference('messenger.bus.default'))
-            ->addArgument(new Reference('serializer'))
-        ;
-
-        $container->addAliases([NetsuiteAbstractRepository::class => 'netsuite.repository']);
+        foreach($this->repositories as $repository) {
+            $container->register($repository, $repository)
+                ->addArgument(new Reference('netsuite.client'))
+                ->addArgument(new Reference('messenger.bus.default'))
+                ->addArgument(new Reference('serializer'))
+            ;
+        }
     }
 }
