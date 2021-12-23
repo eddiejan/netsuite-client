@@ -16,7 +16,7 @@ final class NetsuiteClientPass implements CompilerPassInterface
         ;
 
         $container->addAliases([
-            'netsuite.client' => NetsuiteClient::class
+            NetsuiteClient::class => 'netsuite.client'
         ]);
     }
 }
