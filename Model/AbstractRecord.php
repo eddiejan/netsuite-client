@@ -2,7 +2,7 @@
 
 namespace Eddiejan\NetsuiteClient\Model;
 
-class AbstractRecord
+abstract class AbstractRecord
 {
     public function __construct (
         private ?string $id,
