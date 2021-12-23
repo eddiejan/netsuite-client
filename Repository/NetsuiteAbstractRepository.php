@@ -12,8 +12,8 @@ class NetsuiteAbstractRepository
     protected string $model;
 
     public function __construct(
-        private NetsuiteClient $client,
-        private MessageBusInterface $bus,
-        private SerializerInterface $serializer
+        protected NetsuiteClient $client,
+        protected MessageBusInterface $bus,
+        protected SerializerInterface $serializer
     ) {}
 }
