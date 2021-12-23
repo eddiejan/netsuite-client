@@ -2,7 +2,9 @@
 
 namespace Eddiejan\NetsuiteClient;
 
-class NetsuiteEnvironment implements EnvironmentInterface
+use Eddiejan\Package\CredentialInterface;
+
+final class NetsuiteCredential implements CredentialInterface
 {
     public const CLIENT = NetsuiteClient::class;
 
@@ -15,32 +17,32 @@ class NetsuiteEnvironment implements EnvironmentInterface
         private string $baseUri
     ) {}
 
-    public function getRealm()
+    public function getRealm(): string
     {
         return $this->realm;
     }
 
-    public function getConsumerKey()
+    public function getConsumerKey(): string
     {
         return $this->consumerKey;
     }
 
-    public function getConsumerSecret()
+    public function getConsumerSecret(): string
     {
         return $this->consumerSecret;
     }
 
-    public function getToken()
+    public function getToken(): string
     {
         return $this->token;
     }
 
-    public function getTokenSecret()
+    public function getTokenSecret(): string
     {
         return $this->tokenSecret;
     }
 
-    public function getBaseUri()
+    public function getBaseUri(): string
     {
         return $this->baseUri;
     }

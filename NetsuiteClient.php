@@ -2,27 +2,28 @@
 
 namespace Eddiejan\NetsuiteClient;
 
+use Eddiejan\Package\ClientInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Symfony\Contracts\HttpClient\ResponseStreamInterface;
 
-class NetsuiteClient implements ClientInterface
+final class NetsuiteClient implements ClientInterface
 {
-    private ?NetsuiteEnvironment $environment;
+    private ?NetsuiteCredential $credential;
 
     public function __construct(
         private HttpClientInterface $client
     ) { }
 
-    public function connectEnvironment(NetsuiteEnvironment $environment): void
+    public function connectCredential(NetsuiteCredential $credential): void
     {
-        $this->environment = $environment;
-        $this->client = $this->withOptions(['base_uri' => $this->environment->getBaseUri()]);
+        $this->credential = $credential;
+        $this->client = $this->withOptions(['base_uri' => $this->credential->getBaseUri()]);
     }
 
-    public function disconnectEnvironment(): void
+    public function disconnectCredential(): void
     {
-        $this->environment = null;
+        $this->credential = null;
     }
 
     public function request(string $method, string $url, array $options = []): ResponseInterface

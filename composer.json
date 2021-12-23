@@ -10,8 +10,15 @@
       "email": "edian@eddiejan.nl"
     }
   ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/eddiejan/package"
+    }
+  ],
   "require": {
     "php": ">=8.0",
+    "eddiejan/package": "dev-master",
     "symfony/http-client": "*",
     "symfony/messenger": "^6.0",
     "symfony/serializer": "^6.0",

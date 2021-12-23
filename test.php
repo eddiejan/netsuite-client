@@ -1,12 +1,12 @@
 <?php
 
 use Eddiejan\NetsuiteClient\NetsuiteClient;
-use Eddiejan\NetsuiteClient\NetsuiteEnvironment;
+use Eddiejan\NetsuiteClient\NetsuiteCredential;
 use Symfony\Component\HttpClient\HttpClient;
 
 require 'vendor/autoload.php';
 
-$environment = new NetsuiteEnvironment(
+$environment = new NetsuiteCredential(
     '4948328_SB1',
     '6db8c2091c01b8e2bd2af0ab6fa7be2c239d3405be507b8a962c58f7a86daacd',
     'd85e9935777929ee38e45fc2cac497997ad091427cda3e839e9e22e26b9a104b',
