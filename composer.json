@@ -33,5 +33,5 @@
       "/Tests/"
     ]
   },
-  "minimum-stability": "stable"
+  "minimum-stability": "dev"
 }
